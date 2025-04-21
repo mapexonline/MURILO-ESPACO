@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Murilinho no Espaço</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-sky-200 to-blue-300 text-blue-900 min-h-screen flex flex-col justify-center items-center p-4 font-sans">
+
+  <div class="text-center max-w-xl">
+    <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Olá, Murilinho!</h1>
+
+    <p class="text-lg sm:text-xl mb-6">
+      Murilinho, hoje é o dia da nossa grande aventura pelo espaço!
+      Vamos embarcar juntos para conhecer os planetas incríveis do nosso Sistema Solar!
+    </p>
+
+    <p class="text-2xl sm:text-3xl font-bold text-blue-700 mb-8">
+      Então vamos lá: coloca o palito na boca e vai!
+    </p>
+
+    <button onclick="iniciar()" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-2xl text-xl shadow-lg transition-transform transform hover:scale-105">
+      Começar a Jornada
+    </button>
+  </div>
+
+  <img src="https://cdn-icons-png.flaticon.com/512/3212/3212608.png" alt="Foguete" class="w-40 mt-10 animate-bounce">
+
+  <script>
+    function iniciar() {
+      window.location.href = "planetas.html";
+    }
+  </script>
+
+</body>
+</html>
