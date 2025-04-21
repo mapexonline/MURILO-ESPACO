@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planetas do Sistema Solar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-sky-200 to-blue-300 text-blue-900 min-h-screen flex flex-col justify-center items-center p-4 overflow-hidden font-sans">
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold mb-6 text-center text-blue-800">Explore os Planetas com Murilinho</h1>
+
+  <div id="planeta-container" class="w-full max-w-md bg-white text-blue-800 rounded-3xl p-6 shadow-xl text-center border-4 border-blue-200">
+    <h2 id="nome" class="text-2xl font-bold mb-2">Mercúrio</h2>
+    <p id="contador" class="text-sm text-blue-500 mb-4">1/8</p>
+    <img id="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/220px-Mercury_in_true_color.jpg" alt="Mercúrio" class="mx-auto rounded-xl mb-4 w-48 h-48 object-cover border-4 border-blue-300">
+    <p id="curiosidade" class="text-lg mb-6">O menor planeta, bem quentinho!</p>
+    <button id="botao-proximo" onclick="proximo()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-md">Próximo planeta</button>
+  </div>
+
+  <div id="tela-final" class="hidden flex flex-col items-center text-center mt-10">
+    <p class="text-3xl text-blue-700 font-bold mb-4">Parabéns, Murilinho!</p>
+    <p class="text-lg mb-4">Você conheceu todos os planetas do nosso sistema solar!</p>
+    <p class="text-lg italic text-blue-600 mb-6">Tchau Murilinho, até a próxima aventura!</p>
+    <button onclick="reiniciar()" class="bg-green-400 hover:bg-green-500 text-white font-semibold py-2 px-6 rounded-full shadow-md mb-6">Recomeçar</button>
+    <p class="text-xs text-blue-500">Desenvolvido por mapexonline22@gmail.com</p>
+  </div>
+
+  <script>
+    const planetas = [
+      {
+        nome: "Mercúrio",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/220px-Mercury_in_true_color.jpg",
+        curiosidade: "O menor planeta, bem quentinho!"
+      },
+      {
+        nome: "Vênus",
+        img: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+        curiosidade: "Mais quente que o forno da vovó!"
+      },
+      {
+        nome: "Terra",
+        img: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
+        curiosidade: "Nosso lar azul!"
+      },
+      {
+        nome: "Marte",
+        img: "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+        curiosidade: "O planeta vermelho com poeira marciana!"
+      },
+      {
+        nome: "Júpiter",
+        img: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg",
+        curiosidade: "Gigante com uma tempestade doida!"
+      },
+      {
+        nome: "Saturno",
+        img: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg",
+        curiosidade: "Tem um anel de gelo e pedra, chique!"
+      },
+      {
+        nome: "Urano",
+        img: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg",
+        curiosidade: "Gira de lado como um peão maluco!"
+      },
+      {
+        nome: "Netuno",
+        img: "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg",
+        curiosidade: "Tem ventos fortíssimos e cor azulona!"
+      }
+    ];
+
+    let atual = 0;
+
+    function proximo() {
+      atual++;
+      if (atual < planetas.length) {
+        const planeta = planetas[atual];
+        document.getElementById("nome").innerText = planeta.nome;
+        document.getElementById("img").src = planeta.img;
+        document.getElementById("img").alt = planeta.nome;
+        document.getElementById("curiosidade").innerText = planeta.curiosidade;
+        document.getElementById("contador").innerText = `${atual + 1}/${planetas.length}`;
+      } else {
+        document.getElementById("planeta-container").classList.add("hidden");
+        document.getElementById("tela-final").classList.remove("hidden");
+      }
+    }
+
+    function reiniciar() {
+      atual = 0;
+      const planeta = planetas[atual];
+      document.getElementById("nome").innerText = planeta.nome;
+      document.getElementById("img").src = planeta.img;
+      document.getElementById("img").alt = planeta.nome;
+      document.getElementById("curiosidade").innerText = planeta.curiosidade;
+      document.getElementById("contador").innerText = `1/${planetas.length}`;
+      document.getElementById("tela-final").classList.add("hidden");
+      document.getElementById("planeta-container").classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
